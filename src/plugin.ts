@@ -1,5 +1,4 @@
 import { Plugin } from 'vue'
-import Keycloak from 'keycloak-js'
 import { defaultInitConfig } from './const'
 import { createKeycloak, initKeycloak } from './keycloak'
 import { isPromise, isFunction, isNil, isString } from './utils'
@@ -15,7 +14,7 @@ type KeycloakConfigAsyncFactory = () => Promise<KeycloakPluginConfig>
 
 type VueKeycloakPluginConfig = string | KeycloakPluginConfig | KeycloakConfigFactory | KeycloakConfigAsyncFactory
 
-export const vueKeycloak: Plugin = {
+export const vueKeycloak: Required<Plugin> = {
   async install(app, options: VueKeycloakPluginConfig) {
     if (isNil(options)) {
       throw new Error('The Keycloak.KeycloakConfig are requried')

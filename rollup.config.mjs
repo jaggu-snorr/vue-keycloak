@@ -11,8 +11,10 @@ export default {
     {
       dir: 'dist/',
       format: 'commonjs',
-      preferConst: true,
       sourcemap: true,
+      generatedCode: {
+        constBindings: true,
+      },
     },
   ],
   external: ['keycloak-js', 'jwt-decode', 'vue'],
